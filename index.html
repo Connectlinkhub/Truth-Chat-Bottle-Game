@@ -1,0 +1,95 @@
+
+html_code = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truth Chat Bottle Game</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  h1 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    text-align: center;
+  }
+  #bottle-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #bottle {
+    font-size: 100px;
+    transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+  }
+  button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    background: #ff4081;
+    color: white;
+    cursor: pointer;
+  }
+  button:active {
+    transform: scale(0.97);
+  }
+  #result {
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+    min-height: 30px;
+  }
+</style>
+</head>
+<body>
+
+<h1>🍾 Truth Chat Bottle Game 🍾</h1>
+
+<div id="bottle-container">
+  <div id="bottle">🍾</div>
+</div>
+
+<button onclick="spinBottle()">Spin the Bottle</button>
+
+<div id="result"></div>
+
+<script>
+let currentRotation = 0;
+
+function spinBottle() {
+  const bottle = document.getElementById('bottle');
+  const resultDiv = document.getElementById('result');
+  resultDiv.innerText = "";
+
+  const extraSpins = 5; // full rotations
+  const randomAngle = Math.floor(Math.random() * 360);
+  currentRotation += extraSpins * 360 + randomAngle;
+
+  bottle.style.transform = `rotate(${currentRotation}deg)`;
+
+  setTimeout(() => {
+    resultDiv.innerText = "It's your turn! Ask or answer a truth question. 🎤";
+  }, 4100);
+}
+</script>
+
+</body>
+</html>
+'''
+print(len(html_code))
+print(html_code[:200])
