@@ -1,5 +1,4 @@
-
-html_code = '''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -58,10 +57,10 @@ html_code = '''<!DOCTYPE html>
 </head>
 <body>
 
-<h1>🍾 Truth Chat Bottle Game 🍾</h1>
+<h1>Truth Chat Bottle Game</h1>
 
 <div id="bottle-container">
-  <div id="bottle">🍾</div>
+  <div id="bottle">BOTTLE</div>
 </div>
 
 <button onclick="spinBottle()">Spin the Bottle</button>
@@ -72,24 +71,21 @@ html_code = '''<!DOCTYPE html>
 let currentRotation = 0;
 
 function spinBottle() {
-  const bottle = document.getElementById('bottle');
-  const resultDiv = document.getElementById('result');
+  var bottle = document.getElementById('bottle');
+  var resultDiv = document.getElementById('result');
   resultDiv.innerText = "";
 
-  const extraSpins = 5; // full rotations
-  const randomAngle = Math.floor(Math.random() * 360);
+  var extraSpins = 5;
+  var randomAngle = Math.floor(Math.random() * 360);
   currentRotation += extraSpins * 360 + randomAngle;
 
-  bottle.style.transform = `rotate(${currentRotation}deg)`;
+  bottle.style.transform = "rotate(" + currentRotation + "deg)";
 
-  setTimeout(() => {
-    resultDiv.innerText = "It's your turn! Ask or answer a truth question. 🎤";
+  setTimeout(function() {
+    resultDiv.innerText = "It is your turn! Ask or answer a truth question.";
   }, 4100);
 }
 </script>
 
 </body>
 </html>
-'''
-print(len(html_code))
-print(html_code[:200])
